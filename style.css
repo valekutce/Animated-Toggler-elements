@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    height: 100vh;
+    place-items: center;
+    background: #23282f;
+}
+
+.toggler {
+    display: grid;
+    height: 50px;
+    width: 55px;
+    place-items: center;
+    cursor: pointer;
+    background: teal;
+    border-radius: 0.1rem;
+    z-index: 999;
+}
+
+.toggler .toggle-bar {
+    position: relative;
+    height: 3px;
+    width: 32px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.toggler .toggle-bar::before {
+    position: absolute;
+    content: '';
+    top: -0.7rem;
+    left: 0;
+    height: 3px;
+    width: 32px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+.toggler .toggle-bar::after {
+    position: absolute;
+    content: '';
+    top: 0.7rem;
+    left: 0;
+    height: 3px;
+    width: 32px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+/* animation start */
+
+.toggler.active .toggle-bar {
+    background: transparent;
+    transform: rotate(40deg);
+}
+
+.toggler.active .toggle-bar::before {
+    transform: rotate(-85deg);
+    top: 0;
+}
+
+.toggler.active .toggle-bar::after {
+    transform: rotate(5deg);
+    top: 0;
+}
